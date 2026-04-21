@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0e0e0e;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #20201f;
+  --color-surface-container-highest: #262626;
+  --color-primary: #f3ffca;
+  --color-primary_fixed: #cafd00;
+  --color-primary_dim: #beee00;
+  --color-error_dim: #d53d18;
+  --color-on_primary_fixed: #000000;
+  --color-on_error: #450900;
+  --color-on_surface_variant: #adaaaa;
+  --color-secondary_container: #474746;
+  --color-on_secondary_container: #d2d0cf;
+
+  --font-sans: 'Inter', sans-serif;
+  --letter-spacing-tightest: -0.02em;
+}
+
+:root {
+  --background: #0e0e0e;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    letter-spacing: var(--letter-spacing-tightest);
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: linear-gradient(to right, var(--color-primary_fixed), var(--color-primary_dim));
+    color: black;
+    font-weight: 700;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(202, 253, 0, 0.3);
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .field-input {
+    background-color: var(--color-surface-container-highest);
+    border: none;
+    border-bottom: 2px solid rgba(173, 170, 170, 0.3);
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    color: white;
+    width: 100%;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .field-input:focus {
+    border-bottom-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(243, 255, 202, 0.1);
+  }
+  .field-input::placeholder {
+    color: rgba(173, 170, 170, 0.5);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px rgba(243, 255, 202, 0.1);
+  }
+
+  .surface-card {
+    background-color: var(--color-surface-container-highest);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .surface-card-secondary {
+    background-color: var(--color-surface-container);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+}
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
